@@ -100,6 +100,8 @@
                 <artifactId>wildfly-maven-plugin</artifactId>
                 <version>${version.wildfly.maven.plugin}</version>
                 <configuration>
+                    <!-- serverConfig>standalone.xml</serverConfig -->
+                    <jvmArgs>-Djboss.socket.binding.port-offset=1000</jvmArgs>
                     <filename>${project.build.finalName}.jar</filename>
                 </configuration>
             </plugin>

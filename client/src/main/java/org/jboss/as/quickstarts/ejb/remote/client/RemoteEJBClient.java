@@ -24,6 +24,7 @@ import javax.naming.InitialContext;
 import javax.naming.NamingException;
 
 import java.util.Hashtable;
+import java.util.Properties;
 
 /**
  * A sample program which acts a remote client for a EJB deployed on AS7 server. This program shows how to lookup stateful and
@@ -106,8 +107,9 @@ public class RemoteEJBClient {
      * @throws NamingException
      */
     private static RemoteCalculator lookupRemoteStatelessCalculator() throws NamingException {
-        final Hashtable<String, String> jndiProperties = new Hashtable<>();
+        Properties jndiProperties = new Properties();
         jndiProperties.put(Context.URL_PKG_PREFIXES, "org.jboss.ejb.client.naming");
+        jndiProperties.put("jboss.naming.client.ejb.context", true);
         final Context context = new InitialContext(jndiProperties);
 
         // The JNDI lookup name for a stateless session bean has the syntax of:
@@ -140,8 +142,9 @@ public class RemoteEJBClient {
      * @throws NamingException
      */
     private static RemoteCounter lookupRemoteStatefulCounter() throws NamingException {
-        final Hashtable<String, String> jndiProperties = new Hashtable<>();
+        Properties jndiProperties = new Properties();
         jndiProperties.put(Context.URL_PKG_PREFIXES, "org.jboss.ejb.client.naming");
+        jndiProperties.put("jboss.naming.client.ejb.context", true);
         final Context context = new InitialContext(jndiProperties);
 
         // The JNDI lookup name for a stateful session bean has the syntax of:

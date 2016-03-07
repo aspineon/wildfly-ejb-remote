@@ -4,7 +4,7 @@ Wildfly example of remote EJB invocation. Based on the work by Jaikiran Pai and 
 What is it?
 -----------
 
-Access an EJB from a remote Java client application, using *EJB* and *JNDI*. There are two components to this example:
+Access an EJB from a remote WAR client application, using *EJB* and *JNDI*. There are two components to this example:
 
 1. A server side component:
 
@@ -14,7 +14,7 @@ Access an EJB from a remote Java client application, using *EJB* and *JNDI*. The
 
     The remote client application depends on the remote business interfaces from the server component. This application looks up the stateless and stateful beans via JNDI and invokes a number of methods on them.
 
-Each component is defined in its own standalone Maven module. The quickstart provides a top level Maven module to simplify the packaging of the artifacts.
+Each component is defined in its own standalone Maven module. There is a top level Maven module to simplify the packaging of the artifacts.
 
 System requirements
 -------------------
@@ -35,13 +35,24 @@ Build and Deploy the Quickstart
 
             mvn wildfly:run
 
-2. Build and run the client application
+2. Build and run the client REST services:
     * Navigate to the client subdirectory:
 
             cd ../client
     * Compile the client code
 
             mvn clean compile
-    * Execute the client application within Maven
+    * Deploy and run the WAR to a WildFly server.
 
-            mvn exec:exec
+            mvn wildfly:run
+
+3. Test the REST services
+
+The server runs on port 9080. The client (REST services) runs on port 8080.
+
+Examples:
+
+    http://localhost:8080/api/calc/add/3/4
+
+    http://localhost:8080/api/calc/sub/7/5
+
