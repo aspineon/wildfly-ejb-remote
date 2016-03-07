@@ -56,3 +56,6 @@ Examples:
 
     http://localhost:8080/api/calc/sub/7/5
 
+    http://localhost:8080/api/count/inc/3
+
+    http://localhost:8080/api/count/dec/2
