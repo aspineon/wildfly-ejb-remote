@@ -1,6 +1,5 @@
 package com.beauchef.rest;
 
-import com.beauchef.service.CalculatorService;
 import com.beauchef.service.CounterService;
 
 import javax.inject.Inject;
@@ -10,8 +9,6 @@ import javax.ws.rs.Path;
 import javax.ws.rs.PathParam;
 import javax.ws.rs.Produces;
 import javax.ws.rs.core.Response;
-import java.util.ArrayList;
-import java.util.List;
 
 /**
  * Created by jean- on 2016-03-06.
